@@ -4,6 +4,12 @@
   background-color: var(--color-grey-light-1);
   box-shadow: var(--shadow-dark);
   min-height: 50rem;
+
+  @media only screen and (max-width: $bp-largest){
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .header {
@@ -14,10 +20,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: $bp-smallest) {
+    flex-wrap: wrap;
+    height: 11rem;
+    align-content: space-around;
+  }
 }
 
 .content {
   display: flex;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
@@ -34,10 +50,19 @@
 }
 
 .detail {
+  font-size: 1.4rem;
   display: flex;
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
 }
 
 .description {
@@ -47,10 +72,24 @@
   margin-right: 4.5rem;
   background-color: #fff;
   box-shadow: var(--shadow-light);
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
+
 }
 
 .user-reviews {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .paragraph:not(:last-of-type){
@@ -79,13 +118,18 @@
     width: 1rem;
     margin-right: .7rem;
     
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+     background-image: url(../img/chevron-thin-right.svg);
+     background-size: cover;
+
+    @supports (-webkit-mask-image:url()) or (mask-image:url()){
     background-color: var(--color-primary);
     -webkit-mask-image: url(../img/chevron-thin-right.svg);
     -webkit-mask-size: cover;
     mask-image: url(../img/chevron-thin-right.svg);
     mask-size: cover;
+    background-image: none;
+    }
+    
   }  
 }
 
@@ -100,7 +144,7 @@
   }
 
   &__friends {
-
+    display: flex;
   }
 
   &__photo {
@@ -111,7 +155,7 @@
     border: .3rem solid #fff;
 
     &:not(:last-child){
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
