@@ -85,6 +85,10 @@
       width: 1.5rem;
       height: 1.5rem;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
   }
 
 }
@@ -95,6 +99,10 @@
   padding: 2.5rem;
   color: var(--color-grey-light-4);
 
+
+}
+
+.legal--side {
   @media only screen and (max-width: $bp-medium) {
     display: none;
   }
